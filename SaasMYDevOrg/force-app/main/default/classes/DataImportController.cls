@@ -86,7 +86,12 @@ public with sharing class DataImportController {
             throw new AuraHandledException('Error inserting records: ' + e.getMessage());
         }
     }
-    
+    // test method for github
+    public static testmethd(List<Opportunity>opp){
+        for(Opportunity op: opp){
+          System.debug('got new Opp');
+        }
+    }
 
     public class SObjectDescribe{
         @AuraEnabled public String label;
