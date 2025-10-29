@@ -1,0 +1,41 @@
+<template>
+    <lightning-card variant="Narrow" title="Voice To Text" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <!--Buttons-->
+             <div class="slds-grid slds-gutters">
+                <lightning-button label="Start Recording" onclick={startRecording}
+                 variant="brand" class="slds-m-right_small" disabled={isStartDisabled}>
+                </lightning-button>
+
+                <lightning-button label="Stop Recording" onclick={stopRecording}
+                 variant="destructive" class="slds-m-right_small" disabled={isStopDisabled}>
+                </lightning-button>
+
+             </div>
+             <!--Transcript-->
+             <template lwc:if={transcript}>
+                <div class="slds-box slds-theme_default slds-m-top_medium">
+                    <p>{transcript}</p>
+                </div>
+
+             </template>
+            <!-- Error Displayed -->
+             <template lwc:if={errorMessage}>
+                <div class="slds-box slds-theme_error slds-m-top_medium">
+                 <p>{errorMessage}</p>
+                </div>
+            </template>
+
+
+             <template if:true={shouldShowErrorMessage}>
+                <div class="slds-box slds-theme_default slds-m-top_medium">
+                    <p>
+                        Click on start Recording button to start recording your voice.
+                    </p>
+                    
+                </div>
+             </template>
+
+            </div>
+    </lightning-card>
+</template>
